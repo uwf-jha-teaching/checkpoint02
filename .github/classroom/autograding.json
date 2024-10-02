@@ -1,0 +1,44 @@
+{
+	"tests": [
+	{
+		"name": "Run test1",
+		"setup": "",
+		"run": "timeout 60 make clean test-1-deck",
+		"input": "",
+		"output": "All tests passed",
+		"comparison": "included",
+		"timeout": 10,
+		"points": 10
+	},
+	{
+		"name": "Run test2",
+		"setup": "",
+		"run": "timeout 60 make clean test-2-deck",
+		"input": "",
+		"output": "All tests passed",
+		"comparison": "included",
+		"timeout": 10,
+		"points": 10
+	},
+	{
+		"name": "Run test3",
+		"setup": "",
+		"run": "timeout 60 make clean test-3-deck",
+		"input": "",
+		"output": "All tests passed",
+		"comparison": "included",
+		"timeout": 10,
+		"points": 20
+	},
+	{
+		"name": "Memory leak check",
+		"setup": "(valgrind --version || (sudo apt-get update -y && sudo apt-get install -y valgrind)) && make test-2-deck",
+		"run": "timeout 60 valgrind --error-exitcode=1 --leak-check=full ./test-2-deck",
+		"input": "",
+		"output": "",
+		"comparison": "included",
+		"timeout": 10,
+		"points": 10
+	}
+	]
+}
